@@ -40,7 +40,7 @@ internal class Program
         }
 
         app.UseCors(x => x
-            .WithOrigins("http://localhost:5173", "https://jolly-glacier-0ae92c40f.4.azurestaticapps.net", "https://www.forces-unite.com")
+            .WithOrigins("http://localhost:5173", "https://lemon-mushroom-0644c810f.4.azurestaticapps.net")
             .AllowAnyMethod()
             .AllowAnyHeader()
             .AllowCredentials()
