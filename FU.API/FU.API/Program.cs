@@ -39,7 +39,9 @@ internal class Program
             app.UseSwaggerUI();
         }
 
-        string allowedCorsOrigin = DotNetEnv.Env.GetString(ConfigKey.CorsAllowOrigin);
+        string[] allowedCorsOrigins = app.Environment.IsDevelopment()
+        ? new[] { "http://localhost:5173", "https://lemon-mushroom-0644c810f.4.azurestaticapps.net" }
+        : new[] { "https://lemon-mushroom-0644c810f.4.azurestaticapps.net" };
 
         app.UseCors(x => x
             .WithOrigins("allowedCorsOrigin")
