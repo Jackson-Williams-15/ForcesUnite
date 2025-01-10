@@ -39,7 +39,8 @@ internal class Program
             app.UseSwaggerUI();
         }
 
-        string[] allowedCorsOrigins = app.Configuration[ConfigKey.CorsAllowOrigin]?.Split(',') ?? Array.Empty<string>();
+        string allowedCorsOrigin = DotNetEnv.Env.GetString(ConfigKey.CorsAllowOrigin);
+        string[] allowedCorsOrigins = allowedCorsOrigin?.Split(',') ?? Array.Empty<string>();
 
         app.UseCors(x => x
             .WithOrigins(allowedCorsOrigins)
