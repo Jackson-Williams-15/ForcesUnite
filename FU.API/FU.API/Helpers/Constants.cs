@@ -53,4 +53,9 @@ public static class ConfigKey
     /// The base spa url.
     /// </summary>
     public const string BaseSpaUrl = "BASE_SPA_URL";
+
+    /// <summary>
+    /// The cors allowed origin.
+    /// <summary>
+    public const string CorsAllowOrigin = "CORS_ALLOW_ORIGIN";
 }
