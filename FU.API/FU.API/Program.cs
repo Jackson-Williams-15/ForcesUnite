@@ -44,7 +44,7 @@ internal class Program
         : new[] { "https://lemon-mushroom-0644c810f.4.azurestaticapps.net" };
 
         app.UseCors(x => x
-            .WithOrigins("allowedCorsOrigin")
+            .WithOrigins(allowedCorsOrigins)
             .AllowAnyMethod()
             .AllowAnyHeader()
             .AllowCredentials()
