@@ -1,4 +1,5 @@
 using System.Text;
+using DotNetEnv;
 using FU.API.Data;
 using FU.API.Helpers;
 using FU.API.Hubs;
@@ -82,7 +83,7 @@ internal class Program
         AssertCriticalConfigValuesExist(builder.Configuration);
 
         // Setup the database
-        builder.Services.AddDbContext<AppDbContext>(options => options.UseNpgsql(builder.Configuration[ConfigKey.ConnectionString]));
+        builder.Services.AddDbContext<AppDbContext>(options => options.UseNpgsql(Environment.GetEnvironmentVariable("CONNECTION_STRING")));
 
         // Validates JWT Tokens
         builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
