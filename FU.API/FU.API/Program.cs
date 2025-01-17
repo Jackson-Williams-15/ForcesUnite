@@ -40,7 +40,7 @@ internal class Program
             app.UseSwaggerUI();
         }
 
-        string allowedCorsOrigin = DotNetEnv.Env.GetString(ConfigKey.CorsAllowOrigin);
+        string allowedCorsOrigin = app.Configuration[ConfigKey.CorsAllowOrigin];
         string[] allowedCorsOrigins = allowedCorsOrigin?.Split(',') ?? Array.Empty<string>();
 
         app.UseCors(x => x
@@ -77,13 +77,16 @@ internal class Program
         WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
         // Load Environment variables into config
-        DotNetEnv.Env.TraversePath().Load();
+        if (builder.Environment.IsDevelopment())
+        {
+            DotNetEnv.Env.TraversePath().Load();
+        }
         builder.Configuration.AddEnvironmentVariables();
 
         AssertCriticalConfigValuesExist(builder.Configuration);
 
         // Setup the database
-        builder.Services.AddDbContext<AppDbContext>(options => options.UseNpgsql(Environment.GetEnvironmentVariable("CONNECTION_STRING")));
+        builder.Services.AddDbContext<AppDbContext>(options => options.UseNpgsql(builder.Configuration[ConfigKey.ConnectionString]));
 
         // Validates JWT Tokens
         builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
