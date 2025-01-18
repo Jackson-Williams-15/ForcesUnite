@@ -1,6 +1,6 @@
 # SPA Overview
 
-## Tech Stack
+## Tech Stack 
 
 - SPA is built with React
 - - Material UI is used for common components, some components are custom or modified versions of MUI components
