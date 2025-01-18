@@ -88,6 +88,7 @@ internal class Program
         // Setup the database
         builder.Services.AddDbContext<AppDbContext>(options => options.UseNpgsql(builder.Configuration[ConfigKey.ConnectionString]));
 
+        Console.WriteLine($"Effective Connection String: {builder.Configuration[ConfigKey.ConnectionString]}");
         // Validates JWT Tokens
         builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
         {

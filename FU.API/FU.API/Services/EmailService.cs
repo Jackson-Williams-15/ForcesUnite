@@ -37,7 +37,7 @@ public class EmailService : IEmailService
         {
             var emailSendOperation = await _emailClient.SendAsync(
                 WaitUntil.Started,
-                senderAddress: "DoNotReply@72e78c7f-bd50-4dee-b29d-3853bd1e3fa1.azurecomm.net",
+                senderAddress: "DoNotReply@97bb4916-6646-42f6-b9ee-f16565b7284b.azurecomm.net",
                 recipientAddress: user.Email,
                 subject: GenerateEmailSubject(emailType),
                 htmlContent: GenerateEmailContent(emailType, user));
