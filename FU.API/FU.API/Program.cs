@@ -40,11 +40,11 @@ internal class Program
             app.UseSwaggerUI();
         }
 
-        string allowedCorsOrigin = app.Configuration[ConfigKey.CorsAllowOrigin];
-        string[] allowedCorsOrigins = allowedCorsOrigin?.Split(',') ?? Array.Empty<string>();
+        string allowedCorsOrigin = app.Configuration[ConfigKey.CorsAllowOrigin] ?? string.Empty;
 
+        // string[] allowedCorsOrigins = allowedCorsOrigin?.Split(',') ?? Array.Empty<string>();
         app.UseCors(x => x
-            .WithOrigins(allowedCorsOrigins)
+            .WithOrigins(allowedCorsOrigin)
             .AllowAnyMethod()
             .AllowAnyHeader()
             .AllowCredentials()
