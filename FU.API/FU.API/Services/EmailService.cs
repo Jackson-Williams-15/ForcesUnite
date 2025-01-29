@@ -110,7 +110,7 @@ public class EmailService : IEmailService
                         </div>
                         <p>Dear {user.Username},</p>
                         <p>To confirm your account, please click on the following link:</p>
-                        <p><a href='{baseSpaUrl}signin?token={token}' style='padding: 10px 20px; background-color: #007bff; color: #fff; text-decoration: none; border-radius: 5px;'>Confirm Account</a></p>
+                        <p><a href='{baseSpaUrl}/signin?token={token}' style='padding: 10px 20px; background-color: #007bff; color: #fff; text-decoration: none; border-radius: 5px;'>Confirm Account</a></p>
                         <p>If you didn't request this, you can safely ignore this email.</p>
                         <div class='footer'>
                             <p>Best regards,<br/>Forces Unite Team</p>
@@ -167,7 +167,7 @@ public class EmailService : IEmailService
                         <p>Dear {user.Username},</p>
                         <p>Thank you for registering with us!</p>
                         <p>To confirm your account, please click on the following link:</p>
-                        <p><a href='{baseSpaUrl}signin?token={token}' style='padding: 10px 20px; background-color: #007bff; color: #fff; text-decoration: none; border-radius: 5px;'>Confirm Account</a></p>
+                        <p><a href='{baseSpaUrl}/signin?token={token}' style='padding: 10px 20px; background-color: #007bff; color: #fff; text-decoration: none; border-radius: 5px;'>Confirm Account</a></p>
                         <p>If you didn't request this, you can safely ignore this email.</p>
                         <div class='footer'>
                             <p>Best regards,<br/>Forces Unite Team</p>
